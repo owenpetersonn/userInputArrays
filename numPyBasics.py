@@ -48,6 +48,7 @@ def diviByTwo(arr):
 # Main function to take in user input for integers in array and dimensions of array
 def main():
     numDim = input("How many dimensions? ('Q' to quit): ")
+    # Initialize the cache as an empty list
     cache = []
     # While loop to keep creating user-made arrays until user enters sentinel value of 'Q'
     while numDim.upper() != "Q":
@@ -69,7 +70,7 @@ def main():
                 intsArr = int(input("Enter integers for array: "))
                 listForArr.append(intsArr)
             arr = create3DArray(listForArr)
-        
+        # Append the created array to the cache list
         cache.append(arr)
         indexList = diviByTwo(arr)
         print("Here are the positions of integers in the array that are divisible by 2:\n", indexList)
@@ -82,6 +83,8 @@ def main():
             # While loop that allows the user to view multiple previously created arrays until sentinel value of 'Q' is entered
             while cacheValue.upper() != "Q":
                 cacheValue = int(cacheValue)
+                # Prints the array in the cache list at the index that the user inputted 
+                # (Subtracts user input value by 1 to allow the user to input the actual location in list rather than an index number)
                 print("Here is array number", cacheValue, ":\n", cache[(cacheValue-1)])
                 cacheValue = input("View another previous array ('view') or quit ('Q')?: ")
                 if cacheValue == "view":
